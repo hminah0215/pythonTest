@@ -1,6 +1,7 @@
 import re
 import requests
 
+
 url ='https://www.weather.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108'
 text = requests.get(url).text
 #print(text)

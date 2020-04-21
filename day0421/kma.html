@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>날짜별 날씨 정보</h2>
+    <table>
+        <tr>
+            <td>도시명</td>
+            <td>날짜</td>
+            <td>날씨</td>
+            <td>최고온도</td>
+            <td>최저온도</td>
+        </tr>
+        {% for t in list  %}
+             <tr>
+                <td>{{t['city']}}</td>
+                <td>{{t['tmEf']}}</td>
+                <td>{{t['wf']}}</td>
+                <td>{{t['tmx']}}</td>
+                <td>{{t['tmn']}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
