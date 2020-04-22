@@ -1,16 +1,19 @@
 from flask import Flask, render_template
-#import flask하면 매번 flask. ~~~ 이런식으로 써야하는게 번거로워서 
-import myUtil.hanbit as hanbit
+import myutil.hanb as hanb
 
 app = Flask(__name__)
 
 @app.route("/newBook")
 def newBook():
-    list = hanbit.getNewBook()
-    return  render_template("newbook.html", list=list)
+    list = hanb.getNewBook()
+    r = "pro("+str(list)+")"
+    return r
+    # return  render_template("newBook.html", list=list)
 
 @app.route("/")
 def index():
-        return "<h1>hello</h1>"
+    return "<h1>Hello</h1>"
+
 if __name__ == "__main__":
-    app.run(host="192.168.0.24",debug=True)
+    app.run(host="192.168.0.24", debug=True)
+

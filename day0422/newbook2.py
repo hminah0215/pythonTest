@@ -13,7 +13,10 @@ for book in list:
     data = requests.get("https://www.hanbit.co.kr/"+img_url[0]).content
     bookname = re.findall('<p class="book_tit"><a href=".+?">(.+?)</a>', book)
     fname = bookname[0]+".jpg"
-    f = open("day0422/bookimg/"+fname, "wb")
+    f = open("day0422/bookImg/"+fname, "wb")
     f.write(data)
     f.close()
-    print(bookname[0],"그림을 다운 받았습니다.")
+    print(bookname[0],"번째 그림을 다운 받았습니다.")
+
+
+

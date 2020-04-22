@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h2>한빛 출판사 신간도서</h2>
+    <table>
+        {% for book in list %}
+            <tr>
+                <td>
+                    <img src="static/{{book['title']}}.jpg" width="50" height="50">
+                </td>
+                <td>
+                    도서명 : {{book['title']}}<br>
+                    가격 : {{book['price']}}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
