@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>상품목록</h2>
+    <table border="1" width="80%">
+        <tr>
+            <td>상품번호</td>
+            <td>상품명</td>
+            <td>수량</td>
+            <td>가격</td>
+            <td>이미지이름</td>
+        </tr>
+
+        {% for g in list %}
+            <tr>
+                <td>{{g['no']}}</td>
+                <td>
+                    <a href="detailGoods/{{g['no']}}">{{g['item']}}</a>
+                </td>
+                <td>{{g['qty']}}</td>
+                <td>{{g['price']}}</td>
+                <td>{{g['fname']}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
