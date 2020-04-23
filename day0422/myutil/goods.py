@@ -6,6 +6,22 @@ dbName = "bit"
 colName = "goods"
 # dao 같은 파일
 
+def deleteGoods(no):
+    client = MongoClient(url, port)
+    db = client[dbName]
+    goods = db[colName]
+    doc = {"no":no}
+    re = goods.delete_one(doc).deleted_count
+    return  re
+
+def updateGoods(q,doc):
+    client = MongoClient(url,port)
+    db = client[dbName]
+    goods = db[colName]
+    re = goods.update_one(q,{"$set":doc}).upserted_id
+    print(re)
+    return "ok"
+
 def getGoods(no):
     client = MongoClient(url,port)
     db = client[dbName]

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>상품수정</h2>
+    <form method="post" action="/goodsUpdateOk"
+          enctype="multipart/form-data">
+        <input type="hidden" name="no" value="{{g['no']}}"><br>
+        상품이름 : <input type="text" name="item" value="{{g['item']}}"><br>
+        수량 :    <input type="text" name="qty" value="{{g['qty']}}"><br>
+        가격 :    <input type="text" name="price" value="{{g['price']}}"><br>
+        이미지명 : <input type="file" name="fname"><br>
+        <input type="hidden" name="oldFname" value="{{g['fname']}}">
+
+        상품상세 :<br>
+        <textarea rows="5" cols="80" name="detail">{{g['detail']}}</textarea>
+        <br>
+        <button>수정</button>
+    </form>
+</body>
+</html>
