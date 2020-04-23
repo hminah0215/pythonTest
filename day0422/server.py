@@ -7,35 +7,33 @@ import numpy
 
 app = Flask(__name__)
 
+@app.route("/goodsUpdate/<no>")
+def goodsUpdate(no):
+    g = goods.getGoods(int(no))
+    return render_template("goodsUpdate.html", g=g)
+
 @app.route("/goodsUpdateOk",methods=['POST'])
-def goodsUpdateOk():
+def goodsUpateOk():
     no = int(request.form['no'])
     item = request.form['item']
     qty = int(request.form['qty'])
     price = int(request.form['price'])
     detail = request.form['detail']
-
     oldFname = request.form['oldFname']
-    #파일을 반환하는 request.files
     f = request.files['fname']
     fname = oldFname
+    print("업로드파일명:",fname)
 
     if f.filename != "":
         f.save("day0422/img/"+f.filename)
         fname = f.filename
 
     q = {"no":no}
-    doc = {"item":item,"qty":qty,"price":price,"fname":fname,"detail":detail}
-    re = goods.updateGoods(q,doc)
-    if re > 0 and f.filename != "":
+    doc = {"item":item,"qty":qty, "price":price,"fname":fname, "detail":detail}
+    re= goods.updateGoods(q, doc)
+    if re > 0 and f.filename !="":
         os.remove("day0422/img/"+oldFname)
     return "ok"
-
-@app.route("/goodsUpdate/<no>")
-def goodsUpdate(no):
-    #print("수정할 상품번호",no)
-    g = goods.getGoods(int(no))
-    return render_template("goodsUpdate.html", g = g)
 
 @app.route("/goodsDelete/<no>")
 def goodsDelete(no):

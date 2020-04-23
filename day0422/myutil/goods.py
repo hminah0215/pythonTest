@@ -15,12 +15,14 @@ def deleteGoods(no):
     return  re
 
 def updateGoods(q,doc):
-    client = MongoClient(url,port)
+    client = MongoClient(url, port)
     db = client[dbName]
     goods = db[colName]
-    re = goods.update_one(q,{"$set":doc}).upserted_id
-    print(re)
-    return "ok"
+    # re=goods.update_one(q,{"$set":doc}).modified_count
+    re=goods.update_one(q,{"$set":doc}).raw_result['n']
+
+    print("re:",re)
+    return re
 
 def getGoods(no):
     client = MongoClient(url,port)
