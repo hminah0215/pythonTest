@@ -20,9 +20,15 @@ def goodsInsertOk():
     item = request.form['item']
     qty = int(request.form['qty'])
     price = int(request.form['price'])
-    fname = request.form['fname']
+   # fname = request.form['fname']
     detail = request.form['detail']
-    doc = {"no":no,"itme":item,"qty":qty,"price":price,"fname":fname,"detail":detail}
+    #파일을 반환하는 request.files
+    f = request.files['fname']
+    f.save("day0422/img/"+f.filename)
+    fname = f.filename
+
+    
+    doc = {"no":no,"item":item,"qty":qty,"price":price,"fname":fname,"detail":detail}
     _id = goods.insert(doc)
     print(_id)
     return "ok" 

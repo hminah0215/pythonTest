@@ -6,8 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>상세보기</h2>
+    <h2>상품 상세보기</h2>
     <hr>
-    
+    <table width="50%">
+        <tr>
+            <td>
+                <img src="../img/{{doc['fname']}}" width="100" height="100">
+                <!--<img src="../img/ball1.jpg"> -->
+            </td>
+            <td>
+                상품번호 : {{doc['no']}}<br>
+                상품이름 : {{doc['item']}}<br>
+                상품수량 : {{doc['qty']}}<br>
+                상품가격 : {{doc['price']}}<br>
+            </td>
+        </tr>
+    </table>
+    <textarea rows="5" cols="80" readonly>{{doc['detail']}}</textarea>
 </body>
 </html>
